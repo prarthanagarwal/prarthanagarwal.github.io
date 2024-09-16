@@ -2,32 +2,17 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: #f9fcff;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stacks elements vertically on smaller screens */
-    }
-    
-    .left, .right {
-        width: 100%; /* Full width for each section */
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
-
-    .image-content img {
-        width: 80%; /* Resize image for smaller devices */
-    }
 }
 
 .container {
     display: flex;
     width: 80%;
     max-width: 1200px;
-    height: 100%;
+    min-height: 100%;
 }
 
 .left, .right {
@@ -120,7 +105,7 @@ ul li {
     max-width: 80%;  /* Smaller image */
     margin-bottom: 5px;
     padding-left: 50px;
-    margin-top: 20px;
+    margin-top: 15px;
     height: auto;
 }
 
@@ -131,7 +116,7 @@ ul li {
 }
 
 .connect ul {
-    margin-top: 5px;
+    margin-top: 12px;
     padding-left: 40px;  /* Keep consistent indentation */
 }
 
@@ -142,4 +127,31 @@ ul li {
 .connect ul li a {
     color: #4A5568;
     text-decoration: underline;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        width: 95%; /* Adjust width on smaller screens */
+    }
+
+    .left, .right {
+        width: 100%; /* Full width for both sections */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .image-content img {
+        width: 100%; /* Ensure image takes up full width */
+    }
+
+    .location-time {
+        padding-left: 0;
+        text-align: center; /* Center-align time on smaller screens */
+    }
+
+    .connect {
+        padding-left: 0; /* Remove any extra left padding */
+        padding-right: 0; /* Ensure it doesn't push content off-screen */
+    }
 }
