@@ -1,46 +1,80 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #D2E0FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem;
+.container {
+    width: 80%;
+    max-width: 1000px;
     text-align: center;
 }
 
-nav ul {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.location-time {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.intro {
+    margin-bottom: 20px;
+}
+
+.intro h2 {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.summary, .projects, .connect {
+    flex-basis: 45%;
+}
+
+h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+ul {
     list-style: none;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
+ul li {
+    font-weight: 300;
+    margin-bottom: 10px;
 }
 
-section {
-    margin: 2rem;
+.profile-pic img {
+    border-radius: 50%;
+    max-width: 150px;
 }
 
-.project-card {
-    background-color: white;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.connect ul li a {
+    color: #333;
+    text-decoration: none;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.connect ul li a:hover {
+    text-decoration: underline;
 }
