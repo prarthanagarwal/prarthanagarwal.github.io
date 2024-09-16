@@ -45,7 +45,7 @@ body {
 .right {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -118,28 +118,28 @@ ul li {
 
 .image-content img {
     max-width: 80%;  /* Smaller image */
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding-left: 50px;
-    margin-top: 40px;
+    margin-top: 20px;
     height: auto;
 }
 
 .connect {
-    margin-top: -20px; /* Move the connect section up */
-    padding-top: 0;    /* Remove extra space above connect */
-    text-align: center;
+    margin-top: 10px;  /* Move the connect heading closer to the image */
+    padding-right: 150px;
+    text-align: left;
 }
 
 .connect ul {
-    list-style-type: disc;
-    padding: 0;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
+    padding-left: 40px;  /* Keep consistent indentation */
+}
+
+.connect ul li {
+    margin-bottom: 10px;  /* Keep space between the list items */
 }
 
 .connect ul li a {
     color: #4A5568;
-    text-decoration: none;
-    margin: 0 10px;
     text-decoration: underline;
 }
