@@ -8,6 +8,21 @@ body {
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks elements vertically on smaller screens */
+    }
+    
+    .left, .right {
+        width: 100%; /* Full width for each section */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .image-content img {
+        width: 80%; /* Resize image for smaller devices */
+    }
+}
+
 .container {
     display: flex;
     width: 80%;
