@@ -1,80 +1,130 @@
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #D2E0FB;
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fcff;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .container {
+    display: flex;
     width: 80%;
-    max-width: 1000px;
-    text-align: center;
+    max-width: 1200px;
+    height: 100%;
 }
 
-.header {
+.left, .right {
+    width: 50%;  /* Split container into two halves */
+    padding: 20px;
+}
+
+.left {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 
-.name {
-    font-weight: 700;
-    font-size: 2rem;
+.title {
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.time-and-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align both time and image */
 }
 
 .location-time {
-    font-weight: 400;
-    font-size: 1.2rem;
+    margin-bottom: 5px; /* Space between time and image */
+    font-weight: 300;
+    padding-left: 250px;
+    font-size: 1.0rem;
+    text-align: center;
 }
 
 .intro {
+    text-align: left;
+    color: #4A5568;
+    word-spacing: 1.5px;
+    line-height: 1.6;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
-.intro h2 {
-    font-weight: 300;
-    font-size: 1.5rem;
-}
-
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.summary, .projects, .connect {
-    flex-basis: 45%;
-}
-
 h3 {
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 1.0rem;
+    color: #333333;
+    margin-top: -5px;
     margin-bottom: 10px;
+    text-align: left;
+    /*padding-left: 2px; /* Added more indentation for headings */
+}
+
+.summary ul li, 
+.projects ul li {
+    margin-bottom: 15px; /* Adjust to control space between points */
+}
+
+.projects h3 {
+    margin-top: 10px; /* Reduce to move heading up without collision */
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: disc; /* Standard bullet points */
+    padding-left: 40px;
+    color:#4A5568;
+    margin-bottom: 20px;
 }
 
 ul li {
-    font-weight: 300;
-    margin-bottom: 10px;
+    font-weight: 400;
+    margin-bottom: 10px; /* Added space between points */
 }
 
-.profile-pic img {
-    border-radius: 50%;
-    max-width: 150px;
+.projects ul li a {
+    text-decoration: none;
+    font-weight: 400;
+    color: #4A5568;
+}
+
+.image-content img {
+    max-width: 80%;  /* Smaller image */
+    margin-bottom: 20px;
+    padding-left: 50px;
+    margin-top: 40px;
+    height: auto;
+}
+
+.connect {
+    margin-top: -20px; /* Move the connect section up */
+    padding-top: 0;    /* Remove extra space above connect */
+    text-align: center;
+}
+
+.connect ul {
+    list-style-type: disc;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .connect ul li a {
-    color: #333;
+    color: #4A5568;
     text-decoration: none;
-}
-
-.connect ul li a:hover {
+    margin: 0 10px;
     text-decoration: underline;
 }
