@@ -141,6 +141,11 @@ ul li {
         padding: 10px; /* Adjust padding for smaller screens */
     }
 
+ /* New: Move time and image to be before intro */
+    .time-and-image {
+        order: 1;
+    }
+
     .image-content img {
         width: 100%; /* Ensure image takes up full width */
     }
@@ -152,6 +157,6 @@ ul li {
 
     .connect {
         padding-left: 0; /* Remove any extra left padding */
-        padding-right: 0; /* Ensure it doesn't push content off-screen */
+        padding-right: 85px; /* Ensure it doesn't push content off-screen */
     }
 }
