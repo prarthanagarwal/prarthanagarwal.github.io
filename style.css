@@ -48,9 +48,9 @@ body {
 }
 
 .location-time {
-    margin-bottom: 5px; /* Space between time and image */
-    font-weight: 300;
-    padding-left: 250px;
+    margin-bottom: 10px; /* Space between time and image */
+    font-weight: 350;
+    padding-left: 200px;
     font-size: 1.0rem;
     text-align: center;
 }
@@ -96,22 +96,22 @@ ul li {
 }
 
 .projects ul li a {
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 400;
-    color: #4A5568;
+    color: #272a2e;
 }
 
 .image-content img {
-    max-width: 80%;  /* Smaller image */
+    max-width: 75%;  /* Smaller image */
     margin-bottom: 5px;
     padding-left: 50px;
-    margin-top: 15px;
+    margin-top: -11px;
     height: auto;
 }
 
 .connect {
     margin-top: 10px;  /* Move the connect heading closer to the image */
-    padding-right: 150px;
+    padding-right: 162px;
     text-align: left;
 }
 
