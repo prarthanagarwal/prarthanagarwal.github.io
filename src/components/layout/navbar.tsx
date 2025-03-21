@@ -7,12 +7,12 @@ interface NavbarProps {
 
 export default function Navbar({ showHomeLink = false }: NavbarProps) {
   return (
-    <nav className="flex items-center justify-between pb-8 tracking-tight">
+    <nav className="flex items-center justify-between pb-4 tracking-tight">
       {showHomeLink && (
         <div>
           <Link
             href="/"
-            className="hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline flex items-center gap-1"
+            className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline flex items-center gap-1"
           >
             <svg 
               width="16" 
@@ -37,19 +37,19 @@ export default function Navbar({ showHomeLink = false }: NavbarProps) {
       <div className={`flex items-center gap-4 ${!showHomeLink ? "ml-auto" : ""}`}>
         <Link
           href="/thoughts"
-          className="hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
         >
           thoughts
         </Link>
         {/*<Link
           href="/colophon"
-          className="hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
         >
           colophon
         </Link>*/}
         <Link
           href="/ai"
-          className="hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
         >
           prarthan://ai
         </Link>

@@ -98,7 +98,7 @@ export default function Home() {
           {/* Profile Image with rounded edges */}
           <div className="overflow-hidden rounded-2xl shadow-md w-full max-w-sm">
             <Image
-              src="/IMG_5637.jpg"
+              src="/IMG_5637.webp"
               alt="Prarthan Agarwal"
               width={400}
               height={400}

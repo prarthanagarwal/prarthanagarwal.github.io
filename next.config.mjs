@@ -2,12 +2,6 @@
 const nextConfig = {
   /* config options here */
   images: {
-    domains: [
-      "source.unsplash.com",
-      "images.unsplash.com",
-      "ext.same-assets.com",
-      "ugc.same-assets.com",
-    ],
     remotePatterns: [
       {
         protocol: "https",

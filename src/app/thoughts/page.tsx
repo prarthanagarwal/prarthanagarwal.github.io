@@ -2,6 +2,7 @@
 
 import MainLayout from '@/components/layout/main-layout';
 import ThoughtCard from '@/components/ui/thought-card';
+import { useEffect } from 'react';
 
 const thoughts = [
   {
@@ -14,6 +15,11 @@ const thoughts = [
 ];
 
 export default function Thoughts() {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <MainLayout showHomeLink>
       <h1 className="font-serif text-[2.5rem] tracking-tight text-primary">Thoughts</h1>
