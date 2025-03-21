@@ -78,17 +78,18 @@ export default function Home() {
 
         {/* Right Column - Image and Links */}
         <div className="mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:pt-[2rem]">
+        
           {/* Navigation Links */}
-          <div className="flex items-center gap-4 mb-6 tracking-tight">
+          <div className="flex items-center gap-4 mb-4 tracking-tight w-full max-w-[22rem] justify-end">
             <Link
               href="/thoughts"
-              className="text-base hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+              className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
             >
               thoughts
             </Link>
             <Link
               href="/ai"
-              className="text-base hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+              className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
             >
               prarthan://ai
             </Link>
