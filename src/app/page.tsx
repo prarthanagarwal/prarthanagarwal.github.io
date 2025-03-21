@@ -22,7 +22,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="font-sans">
+    <main className="font-sans py-8">
       <div className="flex flex-col md:flex-row md:gap-8 lg:gap-16">
         {/* Left Column - Text Content */}
         <div className="md:w-1/2">

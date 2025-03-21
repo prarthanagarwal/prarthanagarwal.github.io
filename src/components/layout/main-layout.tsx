@@ -13,7 +13,7 @@ export default function MainLayout({
   showHomeLink = false
 }: MainLayoutProps) {
   return (
-    <main className="font-sans">
+    <main className="font-sans py-8">
       <Navbar showHomeLink={showHomeLink} />
       {children}
       <Footer />
