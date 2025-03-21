@@ -6,8 +6,9 @@ import { satoshi, instrumentSerif } from "./fonts";
 export const metadata: Metadata = {
   title: "Prarthan Agarwal",
   description: "A minimal personal portfolio website.",
+  metadataBase: new URL("https://prarthandon.vercel.app"),
   icons: {
-    icon: "/favicon.ico"
+    icon: "/images/favicon.ico"
   },
   // Open Graph metadata for social media sharing
   openGraph: {
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
     siteName: "Prarthan Agarwal",
     images: [
       {
-        url: "/favicon.ico", // Using your profile image
-        width: 1200,
-        height: 630,
+        url: "/images/android-chrome-512x512.png", // Using a larger image for better quality
+        width: 512,
+        height: 512,
         alt: "Prarthan Agarwal",
       },
     ],
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Prarthan Agarwal",
     description: "A minimal personal portfolio website.",
-    images: ["/favicon.ico"], // Using your profile image
+    images: ["/images/android-chrome-512x512.png"], // Using a larger image for better quality
   },
 };
 
