@@ -47,7 +47,7 @@ export default function RootLayout({
         className={cn(
           satoshi.variable,
           instrumentSerif.variable,
-          "text-body selection:bg-primary selection:text-hoverColor mx-auto my-8 max-w-full px-4 md:my-16 md:max-w-[1200px]"
+          "text-body selection:bg-primary selection:text-hoverColor mx-auto mt-8 mb-8 max-w-full px-4 md:mt-18 md:mb-16 md:max-w-[1200px]"
         )}
       >
         {children}
