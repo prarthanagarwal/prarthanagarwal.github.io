@@ -5,18 +5,33 @@ import { satoshi, instrumentSerif } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Prarthan Agarwal",
-  description: "A minimal personal portfolio website made with Next.js, React and Tailwind CSS",
+  description: "A minimal personal portfolio website.",
   icons: {
-    icon: [
-      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    icon: "/favicon.ico"
+  },
+  // Open Graph metadata for social media sharing
+  openGraph: {
+    title: "Prarthan Agarwal",
+    description: "A minimal personal portfolio website.",
+    url: "https://prarthandon.vercel.app/",
+    siteName: "Prarthan Agarwal",
+    images: [
+      {
+        url: "/favicon.ico", // Using your profile image
+        width: 1200,
+        height: 630,
+        alt: "Prarthan Agarwal",
+      },
     ],
-    apple: { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    shortcut: "/images/favicon.ico",
-    other: [
-      { url: "/images/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/images/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
+    locale: "en_US",
+    type: "website",
+  },
+  // Twitter Card metadata
+  twitter: {
+    card: "summary_large_image",
+    title: "Prarthan Agarwal",
+    description: "A minimal personal portfolio website.",
+    images: ["/favicon.ico"], // Using your profile image
   },
 };
 
