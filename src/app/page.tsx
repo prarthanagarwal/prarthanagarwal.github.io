@@ -9,7 +9,7 @@ const projects = [
   {
     id: 1,
     title: "CryBaby",
-    description: "a mobile app that helps you log & enjoy your crying sessions",
+    description: "a mobile app that lets you track & enjoy your crying sessions :)",
     link: "https://crybaby.app/"
   },
   {
