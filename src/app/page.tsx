@@ -22,8 +22,8 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="font-sans py-8">
-      <div className="flex flex-col md:flex-row md:gap-8 lg:gap-16">
+    <main className="font-sans pt-8">
+      <div className="flex flex-col md:flex-row md:gap-8 lg:gap-16 mx-auto">
         {/* Left Column - Text Content */}
         <div className="md:w-1/2">
       <h1 className="text-[2.5rem] font-serif tracking-tight text-primary">
@@ -47,7 +47,7 @@ export default function Home() {
               <li>Worked on 18+ projects across different profiles.</li>
               <li>Currently selling time as a developer and building my own AI assistant, inspired by Tony Stark.</li>
               <li>Passionate about app and game development; combining both is the ultimate goal.</li>
-              <li>Cinema shapes who I am, and I want to contribute to it in some way.</li>
+              <li>Cinema shapes who I am, I want to give back by making good content.</li>
             </ul>
           </section>
 
@@ -185,7 +185,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
+      <div className="w-full pr-[5%] pl-0">
+        <Footer />
+      </div>
     </main>
   );
 }

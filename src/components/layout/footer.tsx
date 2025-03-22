@@ -46,9 +46,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="pt-8 pb-8">
+    <footer className="pt-8 pb-2">
       <hr className="h-px border-0 bg-title" />
-      <div className="mx-1 flex items-center justify-between pt-4 md:mx-3">
+      <div className="flex items-center justify-between pt-4 px-1 sm:px-3 md:px-4">
         <span className="text-xs text-body">© 2024 Prarthan Agarwal</span>
         <div
           className="flex items-center gap-2"
