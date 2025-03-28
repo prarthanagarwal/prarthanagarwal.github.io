@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
+  output: 'export', // Enable static exports for GitHub Pages
   images: {
     remotePatterns: [
       {
@@ -24,6 +25,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    unoptimized: true, // Required for static export
   },
 };
 

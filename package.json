@@ -6,7 +6,9 @@
     "dev": "next dev -H 0.0.0.0 --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build",
+    "serve": "npx serve out"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
