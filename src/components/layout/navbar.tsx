@@ -36,6 +36,12 @@ export default function Navbar({ showHomeLink = false }: NavbarProps) {
       )}
       <div className={`flex items-center gap-4 ${!showHomeLink ? "ml-auto" : ""}`}>
         <Link
+          href="/projects"
+          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+        >
+          projects
+        </Link>
+        <Link
           href="/thoughts"
           className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
         >

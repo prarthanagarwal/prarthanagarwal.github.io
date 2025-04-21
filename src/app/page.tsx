@@ -8,15 +8,15 @@ import Image from 'next/image';
 const projects = [
   {
     id: 1,
-    title: "CryBaby",
-    description: "a mobile app that lets you track & enjoy your crying sessions :)",
-    link: "https://crybaby.app/"
+    title: "craftads-ai",
+    description: "Advertisement made easy with AI",
+    link: "https://craftads.live/"
   },
   {
     id: 2,
-    title: "F.R.I.D.A.Y (MARK II)",
-    description: "a fully open-source AI assistant",
-    link: "https://github.com/PrarthanAgarwal/F.R.I.D.A.Y"
+    title: "CryBaby",
+    description: "a mobile app to track & enjoy your crying sessions :)",
+    link: "https://crybaby.app/"
   },
 ];
 
@@ -81,6 +81,12 @@ export default function Home() {
         
           {/* Navigation Links */}
           <div className="flex items-center gap-4 mb-4 tracking-tight w-full max-w-[22rem] justify-end">
+            <Link
+              href="/projects"
+              className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+            >
+              projects
+            </Link>
             <Link
               href="/thoughts"
               className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
