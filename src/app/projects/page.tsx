@@ -48,6 +48,14 @@ const projects = [
     link: "https://github.com/PrarthanAgarwal/pinbasket",
     external: true,
     iconSize: 45
+  },
+  {id: 6,
+    title: "Surf Time",
+    description: "Track and analyze your browsing habits to gain insights about your screen time.",
+    icon: "/icons/surf-time.png",
+    link: "/surf-time",
+    external: false,
+    iconSize: 45
   }
 ];
 
