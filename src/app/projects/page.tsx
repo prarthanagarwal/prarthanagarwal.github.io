@@ -12,7 +12,7 @@ const projects = [
     id: 1,
     title: "CryBaby",
     description: "A mobile app to track & enjoy your crying sessions :)",
-    icon: "/icons/crybaby.png",
+    icon: "/logo/crybaby.png",
     link: "https://crybaby.app/",
     external: true,
     iconSize: 50
@@ -21,7 +21,7 @@ const projects = [
     id: 2,
     title: "F.R.I.D.A.Y (MARK II)",
     description: "A fully open-source AI agent inspired by Tony Stark",
-    icon: "/icons/friday.png",
+    icon: "/logo/friday.png",
     link: "https://github.com/PrarthanAgarwal/F.R.I.D.A.Y",
     external: true,
     iconSize: 75
@@ -29,7 +29,7 @@ const projects = [
   {id: 3,
     title: "craftads-ai",
     description: "Advertisement made easy with AI",
-    icon: "/icons/craftads.png",
+    icon: "/logo/craftads.png",
     link: "https://craftads.live/",
     external: true,
     iconSize: 35
@@ -37,25 +37,25 @@ const projects = [
   {id: 4,
     title: "GameBar",
     description: "A multi-game hub to play vintage games on your computer. ",
-    icon: "/icons/gamebar.png",
+    icon: "/logo/gamebar.png",
     link: "https://github.com/PrarthanAgarwal/GameBar",
     external: true
   },
   {id: 5,
     title: "pinbasket",
     description: "Pinterest scraper to collect the best pins.",
-    icon: "/icons/pinbasket.png",
+    icon: "/logo/pinbasket.png",
     link: "https://github.com/PrarthanAgarwal/pinbasket",
     external: true,
     iconSize: 45
   },
   {id: 6,
     title: "Surf Time",
-    description: "Track and analyze your browsing habits to gain insights about your screen time.",
-    icon: "/icons/surf-time.png",
+    description: "Browser extension to track and analyze your browsing habits to gain insights about your screen time.",
+    icon: "/logo/surf-time.png",
     link: "/surf-time",
     external: false,
-    iconSize: 45
+    iconSize: 60
   }
 ];
 

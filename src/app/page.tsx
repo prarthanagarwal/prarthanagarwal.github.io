@@ -9,16 +9,30 @@ const projects = [
   {
     id: 1,
     title: "craftads-ai",
-    description: "Advertisement made easy with AI",
+    description: "an AI-powered tool to create ads that convert-fast, simple, and stress-free.",
     link: "https://craftads.live/"
   },
   {
     id: 2,
     title: "CryBaby",
-    description: "a mobile app to track & enjoy your crying sessions :)",
+    description: "a mobile app to track & enjoy your emotional moments :)",
     link: "https://crybaby.app/"
   },
 ];
+
+const TooltipIcon = ({ icon: Icon, tooltip, color, weight, size }: { icon: any, tooltip: string, color: string, weight: "fill" | "duotone", size: number }) => (
+  <div className="group relative inline-block -ml-1.5 first:ml-1">
+    <Icon 
+      size={size}
+      className="inline-block opacity-80" 
+      weight={weight}
+      color={color}
+    />
+    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+      {tooltip}
+    </div>
+  </div>
+);
 
 export default function Home() {
   return (
@@ -35,7 +49,8 @@ export default function Home() {
           </div>*/}
           <p className="pt-4 text-md">
             Hi there, I'm Prarthan. Welcome to my {" "} 
-            <span className="text-black">digital hangout</span>. This is where I let the world know a bit about me and what keeps me wired and wide awake.{" "}
+            <span className="text-black">digital hangout</span>. 
+            This is where I let the world know a bit about me and what keeps me wired and wide awake.{" "}
             When I'm not coding, I'm diving into research, cinema and new ideas.
           </p>
 
@@ -43,16 +58,87 @@ export default function Home() {
           <section className="pt-6">
             <h2 className="font-medium tracking-tight text-title">Summary</h2>
             <ul className="pt-2 text-base list-disc pl-5 space-y-2">
-              <li>21-year-old creative developer from Surat, India.</li>
-              <li>Worked on 18+ projects across different profiles.</li>
+              <li>21 years old, from Surat.</li>
+              <li>I like to build apps, games and media.</li>
+              <li>Worked with clients across 18+ domains.
+                <div className="group relative inline-block -ml-1.5 first:ml-1">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
+                    <img
+                      src="/icons/palette-duotone.svg"
+                      alt="Graphic Design"
+                      width={16}
+                      height={16}
+                      style={{ display: 'inline-block' }}
+                    />
+                  </div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    Graphic Design
+                  </div>
+                </div>
+                <div className="group relative inline-block -ml-1.5 first:ml-1">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
+                    <img
+                      src="/icons/film-slate-duotone.svg"
+                      alt="Promo Videos"
+                      width={16}
+                      height={16}
+                      style={{ display: 'inline-block' }}
+                    />
+                  </div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    Promo Videos
+                  </div>
+                </div>
+                <div className="group relative inline-block -ml-1.5 first:ml-1">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
+                    <img
+                      src="/icons/package-duotone.svg"
+                      alt="Package Design"
+                      width={16}
+                      height={16}
+                      style={{ display: 'inline-block' }}
+                    />
+                  </div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    Package Design
+                  </div>
+                </div>
+                <div className="group relative inline-block -ml-1.5 first:ml-1">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
+                    <img
+                      src="/icons/hoodie-duotone.svg"
+                      alt="Merch Design"
+                      width={16}
+                      height={16}
+                      style={{ display: 'inline-block' }}
+                    />
+                  </div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    Merch Design
+                  </div>
+                </div>
+                <div className="group relative inline-block -ml-1.5 first:ml-1">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
+                    <img
+                      src="/icons/browsers-duotone.svg"
+                      alt="Web Design"
+                      width={16}
+                      height={16}
+                      style={{ display: 'inline-block' }}
+                    />
+                  </div>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    Web Design
+                  </div>
+                </div>
+              </li>
               <li>Currently selling time as a developer and building my own AI assistant, inspired by Tony Stark.</li>
-              <li>Passionate about app and game development; combining both is the ultimate goal.</li>
-              <li>Cinema shapes who I am, I want to give back by making good content.</li>
+              <li>Cinema shapes me, I would like to give back.</li>
             </ul>
           </section>
 
       <section className="pt-8">
-        <h2 className="font-medium tracking-tight text-title">Projects</h2>
+        <h2 className="font-medium tracking-tight text-title">Actively Developing...</h2>
         <div className="pt-1.5">
           {projects.map(project => (
             <ProjectCard key={project.id} project={project} />
@@ -120,7 +206,7 @@ export default function Home() {
               className="group flex items-center gap-1 underline-offset-4 transition duration-150 ease-in-out md:hover:text-primary md:hover:underline"
             >
               <Image 
-                src="/document.svg" 
+                src="/icons_extra/document.svg" 
                 alt="Resume" 
                 width={16} 
                 height={16} 
@@ -135,7 +221,7 @@ export default function Home() {
               className="group flex items-center gap-1 underline-offset-4 transition duration-150 ease-in-out md:hover:text-primary md:hover:underline"
             >
               <Image 
-                src="/linkedin.svg" 
+                src="/icons_extra/linkedin.svg" 
                 alt="LinkedIn" 
                 width={16} 
                 height={16} 
@@ -150,7 +236,7 @@ export default function Home() {
               className="group flex items-center gap-1 underline-offset-4 transition duration-150 ease-in-out md:hover:text-primary md:hover:underline"
             >
               <Image 
-                src="/twitter_bird.svg" 
+                src="/icons_extra/twitter_bird.svg" 
                 alt="Twitter" 
                 width={16} 
                 height={16} 
@@ -165,7 +251,7 @@ export default function Home() {
               className="group flex items-center gap-1 underline-offset-4 transition duration-150 ease-in-out md:hover:text-primary md:hover:underline"
             >
               <Image 
-                src="/github.svg" 
+                src="/icons_extra/github.svg" 
                 alt="GitHub" 
                 width={16} 
                 height={16} 
@@ -180,7 +266,7 @@ export default function Home() {
               className="group flex items-center gap-1 underline-offset-4 transition duration-150 ease-in-out md:hover:text-primary md:hover:underline"
             >
         <Image
-                src="/email.svg" 
+                src="/icons_extra/email.svg" 
                 alt="Email" 
                 width={16} 
                 height={16} 

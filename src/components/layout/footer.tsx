@@ -37,11 +37,11 @@ export default function Footer() {
 
   function getTimeIcon() {
     if (hour >= 6 && hour < 12) {
-      return "/morning-icon.svg";
+      return "/icons_extra/morning-icon.svg";
     } else if (hour >= 12 && hour < 18) {
-      return "/afternoon-icon.svg";
+      return "/icons_extra/afternoon-icon.svg";
     } else {
-      return "/night-icon.svg";
+      return "/icons_extra/night-icon.svg";
     }
   }
 
