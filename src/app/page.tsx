@@ -4,6 +4,7 @@ import Footer from '@/components/layout/footer';
 import ProjectCard from '@/components/ui/project-card';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Icon } from '@phosphor-icons/react';
 
 const projects = [
   {
@@ -20,7 +21,13 @@ const projects = [
   },
 ];
 
-const TooltipIcon = ({ icon: Icon, tooltip, color, weight, size }: { icon: any, tooltip: string, color: string, weight: "fill" | "duotone", size: number }) => (
+const TooltipIcon = ({ icon: Icon, tooltip, color, weight, size }: { 
+  icon: Icon, 
+  tooltip: string, 
+  color: string, 
+  weight: "fill" | "duotone", 
+  size: number 
+}) => (
   <div className="group relative inline-block -ml-1.5 first:ml-1">
     <Icon 
       size={size}
@@ -63,12 +70,12 @@ export default function Home() {
               <li>Worked with clients across 18+ domains.
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
-                    <img
+                    <Image
                       src="/icons/palette-duotone.svg"
                       alt="Graphic Design"
                       width={16}
                       height={16}
-                      style={{ display: 'inline-block' }}
+                      className="inline-block"
                     />
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
@@ -77,12 +84,12 @@ export default function Home() {
                 </div>
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
-                    <img
+                    <Image
                       src="/icons/film-slate-duotone.svg"
                       alt="Promo Videos"
                       width={16}
                       height={16}
-                      style={{ display: 'inline-block' }}
+                      className="inline-block"
                     />
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
@@ -91,12 +98,12 @@ export default function Home() {
                 </div>
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
-                    <img
+                    <Image
                       src="/icons/package-duotone.svg"
                       alt="Package Design"
                       width={16}
                       height={16}
-                      style={{ display: 'inline-block' }}
+                      className="inline-block"
                     />
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
@@ -105,12 +112,12 @@ export default function Home() {
                 </div>
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
-                    <img
+                    <Image
                       src="/icons/hoodie-duotone.svg"
                       alt="Merch Design"
                       width={16}
                       height={16}
-                      style={{ display: 'inline-block' }}
+                      className="inline-block"
                     />
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
@@ -119,12 +126,12 @@ export default function Home() {
                 </div>
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
-                    <img
+                    <Image
                       src="/icons/browsers-duotone.svg"
                       alt="Web Design"
                       width={16}
                       height={16}
-                      style={{ display: 'inline-block' }}
+                      className="inline-block"
                     />
                   </div>
                   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
