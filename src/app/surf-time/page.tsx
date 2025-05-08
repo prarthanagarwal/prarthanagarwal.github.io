@@ -14,7 +14,7 @@ export default function SurfTimePage() {
         {/* Hero Section */}
         <div className="flex flex-col items-center mb-12">
           <Image
-            src="/icons/surf-time.png"
+            src="/logo/surf-time.png"
             alt="Surf Time Logo"
             width={120}
             height={120}
