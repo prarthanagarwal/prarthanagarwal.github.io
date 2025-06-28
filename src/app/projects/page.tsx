@@ -56,6 +56,14 @@ const projects = [
     link: "/surf-time",
     external: false,
     iconSize: 60
+  },
+  {id: 7,
+    title: "Flowpad",
+    description: "A desktop notepad designed for your flow state.",
+    icon: "/logo/flowpad.png",
+    link: "https://github.com/PrarthanAgarwal/Flowpad",
+    external: true,
+    iconSize: 75
   }
 ];
 

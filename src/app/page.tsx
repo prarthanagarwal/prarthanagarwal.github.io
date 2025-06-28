@@ -145,7 +145,7 @@ export default function Home() {
           </section>
 
       <section className="pt-8">
-        <h2 className="font-medium tracking-tight text-title">Actively Developing...</h2>
+        <h2 className="font-medium tracking-tight text-title">Actively Building:</h2>
         <div className="pt-1.5">
           {projects.map(project => (
             <ProjectCard key={project.id} project={project} />
