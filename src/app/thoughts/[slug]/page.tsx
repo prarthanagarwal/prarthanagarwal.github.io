@@ -12,13 +12,13 @@ export async function generateStaticParams() {
 }
 
 interface ThoughtPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ThoughtPage({ params }: ThoughtPageProps) {
-  const { slug } = params;
+export default async function ThoughtPage({ params }: ThoughtPageProps) {
+  const { slug } = await params;
   const thought = getThoughtBySlug(slug);
 
   if (!thought) {
