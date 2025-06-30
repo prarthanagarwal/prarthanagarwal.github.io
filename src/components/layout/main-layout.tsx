@@ -6,17 +6,19 @@ import Footer from './footer';
 interface MainLayoutProps {
   children: React.ReactNode;
   showHomeLink?: boolean;
+  hideFooter?: boolean;
 }
 
 export default function MainLayout({
   children,
-  showHomeLink = false
+  showHomeLink = false,
+  hideFooter = false
 }: MainLayoutProps) {
   return (
     <main className="font-sans py-8">
       <Navbar showHomeLink={showHomeLink} />
       {children}
-      <Footer />
+      {!hideFooter && <Footer />}
     </main>
   );
 }

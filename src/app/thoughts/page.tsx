@@ -3,22 +3,15 @@
 import MainLayout from '@/components/layout/main-layout';
 import ThoughtCard from '@/components/ui/thought-card';
 import { useEffect } from 'react';
-
-const thoughts = [
-  {
-    slug: "swift-challenge",
-    title: "first and final submission",
-    description: "The story of my Swift Student Challenge.",
-    date: "Feb 14, 2025",
-    image: "/images/swift_challenge.png"
-  },
-];
+import { getAllThoughts } from '@/lib/thoughts-data';
 
 export default function Thoughts() {
   // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const thoughts = getAllThoughts();
 
   return (
     <MainLayout showHomeLink>
