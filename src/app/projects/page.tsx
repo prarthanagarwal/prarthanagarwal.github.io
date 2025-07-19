@@ -35,13 +35,6 @@ const projects = [
     iconSize: 35
   },
   {id: 4,
-    title: "GameBar",
-    description: "A multi-game hub to play vintage games on your computer. ",
-    icon: "/logo/gamebar.png",
-    link: "https://github.com/PrarthanAgarwal/GameBar",
-    external: true
-  },
-  {id: 5,
     title: "pinbasket",
     description: "Pinterest scraper to collect the best pins.",
     icon: "/logo/pinbasket.png",
@@ -49,19 +42,19 @@ const projects = [
     external: true,
     iconSize: 45
   },
-  {id: 6,
+  {id: 5,
     title: "Surf Time",
-    description: "Browser extension to track and analyze your browsing habits to gain insights about your screen time.",
+    description: "Browser extension to track and analyze your browsing habits.",
     icon: "/logo/surf-time.png",
     link: "/surf-time",
     external: false,
     iconSize: 60
   },
-  {id: 7,
+  {id: 6,
     title: "Flowpad",
-    description: "A desktop notepad designed for your flow state.",
+    description: "a minimal notepad for your thoughts to flow",
     icon: "/logo/flowpad.png",
-    link: "https://github.com/PrarthanAgarwal/Flowpad",
+    link: "https://flowpad.live/",
     external: true,
     iconSize: 75
   }
