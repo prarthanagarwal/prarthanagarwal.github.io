@@ -2,6 +2,7 @@
 
 import Footer from '@/components/layout/footer';
 import ProjectCard from '@/components/ui/project-card';
+import OptimizedImage from '@/components/ui/optimized-image';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Icon } from '@phosphor-icons/react';
@@ -194,15 +195,16 @@ export default function Home() {
             </Link>
           </div>
           
-          {/* Profile Image with rounded edges */}
+          {/* Profile Image with rounded edges and blur-to-load effect */}
           <div className="overflow-hidden rounded-2xl shadow-md w-full max-w-sm">
-            <Image
-              src="/IMG_5637.webp"
+            <OptimizedImage
+              src="/profile_2.jpg"
               alt="Prarthan Agarwal"
               width={400}
-              height={400}
+              height={500}
               className="object-cover w-full h-auto"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
