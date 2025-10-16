@@ -12,6 +12,10 @@ interface Message {
 }
 
 export default function AIChat() {
+  // Grounding context used to steer the AI to accurate, concise answers about Prarthan
+  const PRARTHAN_CONTEXT =
+    "You are answering as Prarthan's AI. Bio: Prarthan Agarwal is a designer-developer who builds clean, minimalist interfaces and pragmatic products. Interests: development, research, cinema, and new ideas. Public projects include CryBaby (emotional moments tracker at crybaby.app), craftads-ai (AI ad creation at craftads.live), Flowpad (minimal notepad at flowpad.live), Surf Time (browser extension), FRIDAY (open-source AI agent), and Pinbasket. Keep answers brief, friendly, and strictly about Prarthan; if unsure, ask a clarifying question or say you don't know. Provide links only if shown on the site.";
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -22,6 +26,7 @@ export default function AIChat() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const lastRequestAtRef = useRef<number>(0);
 
   // Auto-scroll to bottom when messages update
   useEffect(() => {
@@ -38,6 +43,13 @@ export default function AIChat() {
 
     if (!inputValue.trim()) return;
 
+    // Basic client-side rate limit to avoid accidental spam
+    const now = Date.now();
+    if (now - lastRequestAtRef.current < 1500) {
+      return; // ignore if requests are too frequent
+    }
+    lastRequestAtRef.current = now;
+
     // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -49,27 +61,53 @@ export default function AIChat() {
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate AI response after a delay
-    setTimeout(() => {
-      const aiResponses = [
-        "I'm a simple AI clone of Prarthan. I'm still learning about him!",
-        "Prarthan is passionate about development and cinema.",
-        "Prarthan is a CS student at SRM University and loves designing minimalist UIs.",
-        "You can check out Prarthan's projects on his GitHub profile.",
-        "Prarthan enjoys exploring new technologies and creating cool projects.",
-      ];
+    // Call Cloudflare Worker proxy (replace with your deployed Worker URL)
+    // Prepare placeholder AI message for streaming updates
+    const aiMsgId = `ai-${now}`;
+    setMessages((prev) => [
+      ...prev,
+      { id: aiMsgId, content: "", isUser: false },
+    ]);
 
-      const randomResponse = aiResponses[Math.floor(Math.random() * aiResponses.length)];
+    fetch("https://don-portfolio.prarthanagarwaljeen.workers.dev/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "text/plain",
+      },
+      body: JSON.stringify({
+        system: PRARTHAN_CONTEXT,
+        requestId: `${now}-${Math.random().toString(36).slice(2, 8)}`,
+        messages: [...messages, userMessage],
+        stream: true,
+      }),
+    })
+      .then(async (res) => {
+        // If the server doesn't stream, fall back to JSON
+        const contentType = res.headers.get("Content-Type") || "";
+        if (!res.body || (!contentType.includes("text/plain") && !contentType.includes("text/event-stream"))) {
+          const data = await res.json().catch(() => null);
+          const finalText = data?.text || "Sorry, I couldn't generate a reply.";
+          setMessages((prev) => prev.map((m) => (m.id === aiMsgId ? { ...m, content: finalText } : m)));
+          return;
+        }
 
-      const aiMessage: Message = {
-        id: Date.now().toString(),
-        content: randomResponse,
-        isUser: false,
-      };
-
-      setMessages((prev) => [...prev, aiMessage]);
-      setIsTyping(false);
-    }, 1500);
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let done = false;
+        while (!done) {
+          const { value, done: readerDone } = await reader.read();
+          done = readerDone;
+          if (value) {
+            const chunk = decoder.decode(value, { stream: true });
+            setMessages((prev) => prev.map((m) => (m.id === aiMsgId ? { ...m, content: m.content + chunk } : m)));
+          }
+        }
+      })
+      .catch(() => {
+        setMessages((prev) => prev.map((m) => (m.id === aiMsgId ? { ...m, content: "Oops, something went wrong. Please try again." } : m)));
+      })
+      .finally(() => setIsTyping(false));
   };
 
   const handleQuickQuestion = (question: string) => {
@@ -192,12 +230,12 @@ export default function AIChat() {
             </a>{" "}
             and{" "}
             <a
-              href="https://sdk.vercel.ai/"
+              href="https://developers.cloudflare.com/workers/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-body md:hover:text-primary underline-offset-4 transition duration-150 ease-in-out md:hover:underline"
             >
-              Vercel AI SDK
+              Cloudflare Worker
             </a>. Make sure to double-check important information.
           </p>
         </div>
