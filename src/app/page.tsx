@@ -10,9 +10,9 @@ import { Icon } from '@phosphor-icons/react';
 const projects = [
   {
     id: 1,
-    title: "craftads-ai",
-    description: "an AI-powered tool to create ads that convert-fast, simple, and stress-free.",
-    link: "https://craftads.live/"
+    title: "flowpad",
+    description: "a minimal notepad for your thoughts to flow",
+    link: "https://flowpad.live/"
   },
   {
     id: 2,
@@ -66,9 +66,9 @@ export default function Home() {
           <section className="pt-6">
             <h2 className="font-medium tracking-tight text-title">Summary</h2>
             <ul className="pt-2 text-base list-disc pl-5 space-y-2">
-              <li>21 years old, from Surat.</li>
+              <li>22 years old, from Surat.</li>
               <li>I like to build apps, games and media.</li>
-              <li>Worked with clients across 18+ domains.
+              <li>Worked with 18+ clients across domains.
                 <div className="group relative inline-block -ml-1.5 first:ml-1">
                   <div className="flex items-center justify-center w-5 h-5 rounded-full bg-hoverColor">
                     <Image
