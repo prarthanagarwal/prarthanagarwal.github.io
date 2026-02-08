@@ -6,7 +6,7 @@ import { satoshi, instrumentSerif } from "./fonts";
 export const metadata: Metadata = {
   title: "Prarthan Agarwal",
   description: "A minimal personal portfolio website.",
-  metadataBase: new URL("https://prarthandon.vercel.app"),
+  metadataBase: new URL("https://prarthanagarwal.me"),
   icons: {
     icon: "/images/favicon.ico"
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prarthan Agarwal",
     description: "A minimal personal portfolio website.",
-    url: "https://prarthandon.vercel.app/",
+    url: "https://prarthanagarwal.me/",
     siteName: "Prarthan Agarwal",
     images: [
       {
@@ -47,7 +47,7 @@ export default function RootLayout({
         className={cn(
           satoshi.variable,
           instrumentSerif.variable,
-          "text-body selection:bg-primary selection:text-hoverColor mx-auto mt-8 mb-0 max-w-full px-6 sm:px-8 md:mt-18 md:max-w-[1200px] md:px-10 lg:px-12"
+          "text-body selection:bg-primary selection:text-hoverColor mx-auto mt-4 mb-0 max-w-full px-6 sm:px-8 md:mt-8 md:max-w-[1400px] md:px-10 lg:px-14"
         )}
       >
         {children}

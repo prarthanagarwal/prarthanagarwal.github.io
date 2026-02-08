@@ -27,7 +27,7 @@ not only did it serve as the perfect mvp for the challenge but potentially a sof
 the main excitement comes from the app being equal parts creative, fun and utilitarian, AND it is kind of a super hit or a complete miss which is multiplying the thrill as I am writing this! 
 WHEN ARE THE WINNERS ANNOUNCED !?
 
-P.S: I lost and it made me think - again.`
+P.S: I lost and I learned.`
   },
   // Add more thoughts here...
 ];

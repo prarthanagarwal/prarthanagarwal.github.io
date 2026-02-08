@@ -1,7 +1,8 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "@phosphor-icons/react";
 
 interface ThoughtCardProps {
   thought: {
@@ -34,17 +35,13 @@ export default function ThoughtCard({ thought }: ThoughtCardProps) {
         <div className="flex w-full items-center justify-between">
           <h2 className="flex items-center justify-between font-medium tracking-tight text-title group-hover:text-primary">
             <span>{thought.title}</span>
-            <Image
-              src="https://ext.same-assets.com/937924524/504589632.svg"
-              alt=""
-              width={16}
-              height={16}
-              className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 ml-1"
+            <ArrowUpRight
+              size={14}
+              weight="bold"
+              className="ml-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             />
           </h2>
-          <p className="text-sm font-normal text-body">
-            {thought.date}
-          </p>
+          <p className="text-sm font-normal text-body">{thought.date}</p>
         </div>
         <p className="pt-0.5 text-sm font-normal text-body max-w-[90%] truncate">
           {thought.description}

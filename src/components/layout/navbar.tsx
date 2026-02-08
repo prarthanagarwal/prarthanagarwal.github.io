@@ -1,14 +1,26 @@
+"use client";
+
 import Link from 'next/link';
-import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 interface NavbarProps {
   showHomeLink?: boolean;
 }
 
+const navLinks = [
+  { href: '/projects', label: 'projects' },
+  { href: '/thoughts', label: 'thoughts' },
+  { href: '/bucket-list', label: 'bucket list' },
+  { href: '/my-corner', label: 'my corner' },
+  { href: '/ai', label: 'prarthan://ai' },
+] as const;
+
 export default function Navbar({ showHomeLink = false }: NavbarProps) {
+  const pathname = usePathname();
+
   return (
     <nav className="flex items-center justify-between pb-4 tracking-tight">
-      {showHomeLink && (
+      {showHomeLink && pathname !== '/' && (
         <div>
           <Link
             href="/"
@@ -35,30 +47,17 @@ export default function Navbar({ showHomeLink = false }: NavbarProps) {
         </div>
       )}
       <div className={`flex items-center gap-4 ${!showHomeLink ? "ml-auto" : ""}`}>
-        <Link
-          href="/projects"
-          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
-        >
-          projects
-        </Link>
-        <Link
-          href="/thoughts"
-          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
-        >
-          thoughts
-        </Link>
-        {/*<Link
-          href="/colophon"
-          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
-        >
-          colophon
-        </Link>*/}
-        <Link
-          href="/ai"
-          className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
-        >
-          prarthan://ai
-        </Link>
+        {navLinks.map(({ href, label }) =>
+          pathname !== href ? (
+            <Link
+              key={href}
+              href={href}
+              className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+            >
+              {label}
+            </Link>
+          ) : null
+        )}
       </div>
     </nav>
   );
