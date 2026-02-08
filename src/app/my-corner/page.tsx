@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MyCorner() {
   return (
-    <MainLayout showHomeLink>
+    <MainLayout showHomeLink hideFooter>
       <div className="flex flex-col items-center justify-center pt-8 pb-12">
         <Image
           src="/404.png"

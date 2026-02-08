@@ -3,7 +3,7 @@ import { bucketList } from "@/lib/bucket-list-data";
 
 export default function BucketList() {
   return (
-    <MainLayout showHomeLink>
+    <MainLayout showHomeLink hideFooter>
       <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
         <h1 className="text-[2.5rem] font-serif tracking-tight text-primary">
           Bucket List
