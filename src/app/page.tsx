@@ -24,7 +24,7 @@ export default function Home() {
       />
 
       {/* Content */}
-      <div className="pt-10">
+      <div className="pt-7">
         {/* Greeting */}
         <h1 className="text-[2.5rem] font-serif tracking-tight text-primary flex items-center gap-2">
           <span className="group cursor-default inline-flex items-center gap-2">
@@ -64,9 +64,19 @@ export default function Home() {
             >
               Twitter
             </a>{" "}
-            is my deranged diary,
+            is my deranged diary,{" "}
+            
+            pretentious cinephile at{" "}
+            <a
+              href="https://letterboxd.com/prarthanagarwal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary no-underline underline-offset-4 transition-all duration-200 ease-in-out hover:underline hover:text-title"
+            >
+              Letterboxd
+            </a>
             <br />
-            for more in-depth conversations, shoot{" "}
+            <span className="block mt-2">for more in-depth conversations, shoot{" "}
             <span className="inline-flex items-center">
               ✉️{" "}
               <a
@@ -75,6 +85,7 @@ export default function Home() {
               >
                 hey.prarthan@gmail.com
               </a>
+            </span>
             </span>
           </p>
         </div>

@@ -22,4 +22,5 @@ export const bucketList: BucketItem[] = [
   { id: 15, text: "go to space", done: false },
   { id: 16, text: "learn atleast 10 languages", done: false },
   { id: 17, text: "scubadive (for real this time)", done: false },
+  { id: 18, text: "forbes 30 under 30", done: false },
 ];
