@@ -9,8 +9,15 @@ interface OptimizedImageProps {
   width: number;
   height: number;
   className?: string;
+  containerClassName?: string;
   priority?: boolean;
   sizes?: string;
+  /**
+   * When true, the container becomes responsive (width: 100%, height: auto)
+   * instead of using fixed pixel dimensions.
+   */
+  responsive?: boolean;
+  maxHeight?: string;
 }
 
 export default function OptimizedImage({
@@ -19,44 +26,49 @@ export default function OptimizedImage({
   width,
   height,
   className = "",
+  containerClassName = "",
   priority = false,
-  sizes
+  sizes,
+  responsive = false,
+  maxHeight,
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [lqipSrc, setLqipSrc] = useState<string>('');
   const imgRef = useRef<HTMLDivElement>(null);
 
-  // Generate simple LQIP
+  // Generate simple LQIP via canvas
   useEffect(() => {
     if (!src) return;
-    
+
     const img = new window.Image();
     img.crossOrigin = 'anonymous';
-    
+
     img.onload = () => {
       try {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        
+
         if (!ctx) return;
-        
-        // Create tiny LQIP
-        const size = 20;
-        canvas.width = size;
-        canvas.height = size;
-        
-        ctx.drawImage(img, 0, 0, size, size);
+
+        // Tiny LQIP – preserving aspect ratio
+        const aspect = img.naturalWidth / img.naturalHeight;
+        const lqipW = 20;
+        const lqipH = Math.round(lqipW / aspect);
+        canvas.width = lqipW;
+        canvas.height = lqipH;
+
+        ctx.drawImage(img, 0, 0, lqipW, lqipH);
         setLqipSrc(canvas.toDataURL('image/jpeg', 0.1));
       } catch (error) {
         console.warn('LQIP generation failed:', error);
       }
     };
-    
+
     img.src = src;
   }, [src]);
 
-  // Lazy loading
+  // Intersection-based lazy loading
   useEffect(() => {
     if (priority) {
       setIsInView(true);
@@ -80,44 +92,53 @@ export default function OptimizedImage({
     return () => observer.disconnect();
   }, [priority]);
 
+  // Container style: responsive vs fixed
+  const containerStyle: React.CSSProperties = responsive
+    ? {
+        width: '100%',
+        aspectRatio: `${width} / ${height}`,
+        ...(maxHeight ? { maxHeight } : {}),
+      }
+    : { width, height };
+
   return (
-    <div 
+    <div
       ref={imgRef}
-      className={`relative overflow-hidden ${className}`}
-      style={{ width, height }}
+      className={`relative overflow-hidden ${containerClassName}`}
+      style={containerStyle}
     >
-      {/* LQIP Layer */}
+      {/* LQIP placeholder layer — always blurred */}
       {lqipSrc && (
         <div
           className="absolute inset-0 transition-all ease-out"
           style={{
             opacity: isLoaded ? 0 : 1,
-            transform: `scale(1.1)`,
-            filter: `blur(20px)`,
+            transform: 'scale(1.1)',
+            filter: 'blur(20px)',
             backgroundImage: `url(${lqipSrc})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            // Delayed fade out - starts after image begins loading
             transitionDelay: isLoaded ? '0ms' : '500ms',
             transitionDuration: '1000ms',
           }}
         />
       )}
-      
-      {/* Final Image Layer */}
+
+      {/* Full image layer — "blur down" technique:
+          starts blurred + scaled (matching LQIP) then
+          deblurs + scales back to normal on load */}
       {isInView && (
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
-          className="absolute inset-0 transition-all ease-out"
+          className={`absolute inset-0 w-full h-full transition-all ease-out ${className}`}
           style={{
             opacity: isLoaded ? 1 : 0,
             transform: isLoaded ? 'scale(1)' : 'scale(1.1)',
             filter: isLoaded ? 'blur(0px)' : 'blur(20px)',
             objectFit: 'cover',
-            // Slower focus transition - blur takes longer to clear
             transitionDuration: '1200ms',
             transitionDelay: isLoaded ? '0ms' : '500ms',
           }}
