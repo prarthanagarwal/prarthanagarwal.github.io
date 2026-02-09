@@ -23,11 +23,14 @@ export default function ThoughtCard({ thought }: ThoughtCardProps) {
       {thought.image && (
         <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg">
           <Image
-            src={thought.image}
+            src={thought.image.replace(/\.webp$/, '-96w.webp')}
             alt={thought.title}
             width={48}
             height={48}
             className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            sizes="48px"
           />
         </div>
       )}

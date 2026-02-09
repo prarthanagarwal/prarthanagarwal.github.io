@@ -1,9 +1,14 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
+
+interface ImageVariant {
+  src: string;
+  width: number;
+}
 
 interface OptimizedImageProps {
+  /** Primary image source (largest/default variant) */
   src: string;
   alt: string;
   width: number;
@@ -11,6 +16,17 @@ interface OptimizedImageProps {
   className?: string;
   containerClassName?: string;
   priority?: boolean;
+  /**
+   * Responsive variants for srcSet generation.
+   * Provide smaller versions so mobile users download less data.
+   * Example: [{ src: '/img-480w.avif', width: 480 }, { src: '/img-800w.avif', width: 800 }]
+   */
+  variants?: ImageVariant[];
+  /**
+   * Sizes attribute for responsive images.
+   * Tells the browser how wide the image will be at each breakpoint.
+   * Example: "(max-width: 768px) 100vw, 900px"
+   */
   sizes?: string;
   /**
    * When true, the container becomes responsive (width: 100%, height: auto)
@@ -18,6 +34,8 @@ interface OptimizedImageProps {
    */
   responsive?: boolean;
   maxHeight?: string;
+  /** Object-fit mode. Defaults to "cover". */
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none';
 }
 
 export default function OptimizedImage({
@@ -28,16 +46,18 @@ export default function OptimizedImage({
   className = "",
   containerClassName = "",
   priority = false,
+  variants,
   sizes,
   responsive = false,
   maxHeight,
+  objectFit = 'cover',
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [lqipSrc, setLqipSrc] = useState<string>('');
   const imgRef = useRef<HTMLDivElement>(null);
 
-  // Generate simple LQIP via canvas
+  // Generate simple LQIP via canvas (tiny blurred placeholder)
   useEffect(() => {
     if (!src) return;
 
@@ -65,8 +85,11 @@ export default function OptimizedImage({
       }
     };
 
-    img.src = src;
-  }, [src]);
+    // For LQIP, always load the smallest variant if available
+    img.src = variants && variants.length > 0
+      ? variants.reduce((a, b) => a.width < b.width ? a : b).src
+      : src;
+  }, [src, variants]);
 
   // Intersection-based lazy loading
   useEffect(() => {
@@ -82,7 +105,7 @@ export default function OptimizedImage({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { rootMargin: '200px', threshold: 0.01 }
     );
 
     if (imgRef.current) {
@@ -91,6 +114,14 @@ export default function OptimizedImage({
 
     return () => observer.disconnect();
   }, [priority]);
+
+  // Build srcSet from variants + the original src
+  const srcSet = variants && variants.length > 0
+    ? [...variants, { src, width }]
+        .sort((a, b) => a.width - b.width)
+        .map(v => `${v.src} ${v.width}w`)
+        .join(', ')
+    : undefined;
 
   // Container style: responsive vs fixed
   const containerStyle: React.CSSProperties = responsive
@@ -124,26 +155,30 @@ export default function OptimizedImage({
         />
       )}
 
-      {/* Full image layer — "blur down" technique:
-          starts blurred + scaled (matching LQIP) then
-          deblurs + scales back to normal on load */}
+      {/* Full image layer — native <img> with srcSet for responsive loading.
+          Uses "blur down" technique: starts blurred + scaled (matching LQIP)
+          then deblurs + scales back to normal on load. */}
       {isInView && (
-        <Image
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           src={src}
+          srcSet={srcSet}
+          sizes={sizes}
           alt={alt}
           width={width}
           height={height}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding={priority ? 'sync' : 'async'}
+          fetchPriority={priority ? 'high' : 'auto'}
           className={`absolute inset-0 w-full h-full transition-all ease-out ${className}`}
           style={{
             opacity: isLoaded ? 1 : 0,
             transform: isLoaded ? 'scale(1)' : 'scale(1.1)',
             filter: isLoaded ? 'blur(0px)' : 'blur(20px)',
-            objectFit: 'cover',
+            objectFit,
             transitionDuration: '1200ms',
             transitionDelay: isLoaded ? '0ms' : '500ms',
           }}
-          priority={priority}
-          sizes={sizes}
           onLoad={() => setIsLoaded(true)}
         />
       )}

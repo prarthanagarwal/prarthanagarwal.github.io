@@ -3,24 +3,27 @@ import Navbar from "@/components/layout/navbar";
 import ProjectCard from "@/components/ui/project-card";
 import OptimizedImage from "@/components/ui/optimized-image";
 import { projects } from "@/lib/projects-data";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="font-sans max-w-3xl mx-auto">
       <Navbar showHomeLink={false} />
 
-      {/* Banner Image — blur-down LQIP */}
+      {/* Banner Image — responsive AVIF with LQIP blur-down */}
       <OptimizedImage
-        src="/IMG_3769.JPG"
+        src="/IMG_3769.avif"
         alt="Banner - Sunset panorama"
         width={900}
         height={260}
+        variants={[
+          { src: "/IMG_3769-480w.avif", width: 480 },
+          { src: "/IMG_3769-800w.avif", width: 800 },
+        ]}
         responsive
         maxHeight="240px"
         containerClassName="rounded-xl"
         priority
-        sizes="(max-width: 768px) 100vw, 900px"
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 900px"
       />
 
       {/* Content */}
@@ -29,13 +32,15 @@ export default function Home() {
         <h1 className="text-[2.5rem] font-serif tracking-tight text-primary flex items-center gap-2">
           <span className="group cursor-default inline-flex items-center gap-2">
             Hello There
-            <Image
-              src="/hello-there-2.gif"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/hello-there-2.webp"
               alt="Hello there"
-              width={64}
-              height={64}
+              width={44}
+              height={44}
+              loading="lazy"
+              decoding="async"
               className="inline-block w-11 h-11 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-              unoptimized
             />
           </span>
         </h1>

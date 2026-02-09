@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/components/layout/main-layout';
-import Image from 'next/image';
 
 // Define types for our messages
 interface Message {

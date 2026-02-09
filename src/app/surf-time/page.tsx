@@ -14,11 +14,14 @@ export default function SurfTimePage() {
         {/* Hero Section */}
         <div className="flex flex-col items-center mb-12">
           <Image
-            src="/logo/surf-time.png"
+            src="/logo/surf-time.webp"
             alt="Surf Time Logo"
             width={120}
             height={120}
             className="mb-6"
+            loading="lazy"
+            decoding="async"
+            sizes="120px"
           />
           <h1 className="text-4xl font-serif tracking-tight text-primary mb-4">Surf Time</h1>
           <p className="text-xl text-body text-center max-w-2xl">

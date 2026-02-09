@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layout/navbar';
@@ -12,7 +11,7 @@ const projects = [
     id: 1,
     title: "CryBaby",
     description: "A mobile app to track & enjoy your crying sessions :)",
-    icon: "/logo/crybaby.png",
+    icon: "/logo/crybaby.webp",
     link: "https://crybaby.app/",
     external: true,
     iconSize: 50
@@ -21,7 +20,7 @@ const projects = [
     id: 2,
     title: "F.R.I.D.A.Y (MARK II)",
     description: "A fully open-source AI agent inspired by Tony Stark",
-    icon: "/logo/friday.png",
+    icon: "/logo/friday.webp",
     link: "https://github.com/PrarthanAgarwal/F.R.I.D.A.Y",
     external: true,
     iconSize: 75
@@ -29,7 +28,7 @@ const projects = [
   {id: 3,
     title: "craftads-ai",
     description: "Advertisement made easy with AI",
-    icon: "/logo/craftads.png",
+    icon: "/logo/craftads.webp",
     link: "https://craftads.live/",
     external: true,
     iconSize: 35
@@ -37,7 +36,7 @@ const projects = [
   {id: 4,
     title: "pinbasket",
     description: "Pinterest scraper to collect the best pins.",
-    icon: "/logo/pinbasket.png",
+    icon: "/logo/pinbasket.webp",
     link: "https://github.com/PrarthanAgarwal/pinbasket",
     external: true,
     iconSize: 45
@@ -45,7 +44,7 @@ const projects = [
   {id: 5,
     title: "Surf Time",
     description: "Browser extension to track and analyze your browsing habits.",
-    icon: "/logo/surf-time.png",
+    icon: "/logo/surf-time.webp",
     link: "/surf-time",
     external: false,
     iconSize: 60
@@ -53,7 +52,7 @@ const projects = [
   {id: 6,
     title: "Flowpad",
     description: "a minimal notepad for your thoughts to flow",
-    icon: "/logo/flowpad.png",
+    icon: "/logo/flowpad.webp",
     link: "https://flowpad.live/",
     external: true,
     iconSize: 75
@@ -79,6 +78,9 @@ export default function ProjectsPage() {
                     width={project.iconSize || 40} 
                     height={project.iconSize || 40} 
                     className="object-contain"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="60px"
                   />
                 ) : (
                   <div className="w-10 h-10 bg-primary/20 rounded-full"></div>

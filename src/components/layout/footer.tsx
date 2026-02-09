@@ -63,6 +63,8 @@ export default function Footer() {
               width={12}
               height={13}
               src={getTimeIcon()}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <span

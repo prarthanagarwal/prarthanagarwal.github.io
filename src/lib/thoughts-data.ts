@@ -13,7 +13,7 @@ export const thoughtsData: Thought[] = [
     title: "first and final submission",
     description: "The story of my Swift Student Challenge.",
     date: "Feb 14, 2023",
-    image: "/images/swift_challenge.png",
+    image: "/images/swift_challenge.webp",
     content: `I had some regrets going into the Swift Student Challenge as I knew about it long before I started developing but never took initiative to submit my own and this year is the last year for me as a student but today I feel nothing but excitement for the winner announcement.
 
 got a MacBook from my sister's friend after I put up a story seeking the laptop on Instagram; in Decemeber - talk about initiative! Turns out he had a boxed M1 sitting in the bag not even signed in or set-up? I struck gold! jumped on it as soon as possible and customized the whole thing Don style. Also this was the first time I was using a mac let alone developing in Swift. The journey has been absolutely thrilling!
