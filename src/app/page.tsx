@@ -65,7 +65,7 @@ export default function Home() {
               href="https://x.com/prarthandon/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary underline decoration-wavy underline-offset-3 transition-all duration-200 ease-in-out hover:text-title"
+              className="text-primary link-wavy transition-all duration-200 ease-in-out hover:text-title"
             >
               Twitter
             </a>{" "}
@@ -76,7 +76,7 @@ export default function Home() {
               href="https://letterboxd.com/prarthanagarwal/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary underline decoration-wavy underline-offset-3 transition-all duration-200 ease-in-out hover:text-title"
+              className="text-primary link-wavy transition-all duration-200 ease-in-out hover:text-title"
             >
               Letterboxd
             </a>
