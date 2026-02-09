@@ -14,8 +14,8 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "CryBaby",
-    description: "a mobile app to track & enjoy your emotional moments :)",
-    link: "https://crybaby.app/",
+    title: "2026dotspace",
+    description: "all things culture countdown website for the year 2026",
+    link: "https://my2026.space/",
   },
 ];
