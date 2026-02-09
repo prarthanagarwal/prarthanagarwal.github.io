@@ -5,7 +5,7 @@ import ThoughtCard from '@/components/ui/thought-card';
 import { useEffect } from 'react';
 import { getAllThoughts } from '@/lib/thoughts-data';
 
-export default function Thoughts() {
+export default function Vichaar() {
   // Scroll to top when page loads
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,7 +15,7 @@ export default function Thoughts() {
 
   return (
     <MainLayout showHomeLink hideFooter>
-      <h1 className="font-serif text-[2.5rem] tracking-tight text-primary">Thoughts</h1>
+      <h1 className="font-serif text-[2.5rem] tracking-tight text-primary">vichaar</h1>
       <h2 className="text-base font-medium tracking-tight text-title">
         some thoughts on design, code, and life.
       </h2>

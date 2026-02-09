@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const navLinks = [
   { href: '/projects', label: 'projects' },
-  { href: '/thoughts', label: 'thoughts' },
+  { href: '/thoughts', label: 'vichaar' },
   { href: '/bucket-list', label: 'bucket list' },
   { href: '/my-corner', label: 'my corner' },
   { href: '/ai', label: 'prarthan://ai' },
@@ -19,12 +19,12 @@ export default function Navbar({ showHomeLink = false }: NavbarProps) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center justify-between pb-4 tracking-tight">
+    <nav className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 pb-4 tracking-tight">
       {showHomeLink && pathname !== '/' && (
         <div>
           <Link
             href="/"
-            className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline flex items-center gap-1"
+            className="text-sm sm:text-base md:text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline flex items-center gap-1"
           >
             <svg 
               width="16" 
@@ -46,13 +46,17 @@ export default function Navbar({ showHomeLink = false }: NavbarProps) {
           </Link>
         </div>
       )}
-      <div className={`flex items-center gap-4 ${!showHomeLink ? "ml-auto" : ""}`}>
+      <div
+        className={`flex flex-wrap items-center gap-2 sm:gap-3 ${
+          !showHomeLink ? "sm:ml-auto" : "sm:ml-0 sm:justify-end"
+        } ${showHomeLink ? "mt-1 sm:mt-0" : ""}`}
+      >
         {navLinks.map(({ href, label }) =>
           pathname !== href ? (
             <Link
               key={href}
               href={href}
-              className="text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline"
+              className="text-sm sm:text-base md:text-lg hover:text-primary underline-offset-4 transition duration-150 ease-in-out hover:underline relative pl-2 before:content-['·'] first:before:content-none before:mr-1 sm:before:hidden"
             >
               {label}
             </Link>
