@@ -12,6 +12,7 @@
 
 /coverage
 /docs
+/scripts
 
 # next.js
 /.next/

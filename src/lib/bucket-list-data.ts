@@ -2,6 +2,8 @@ export interface BucketItem {
   id: number;
   text: string;
   done: boolean;
+  link?: string;
+  linkText?: string;
 }
 
 export const bucketList: BucketItem[] = [
@@ -23,4 +25,5 @@ export const bucketList: BucketItem[] = [
   { id: 16, text: "learn atleast 10 languages", done: false },
   { id: 17, text: "scubadive (for real this time)", done: false },
   { id: 18, text: "forbes 30 under 30", done: false },
+  { id: 19, text: "sing and dance in an irish pub", done: false, link: "https://www.instagram.com/reel/DULubgbkZ7d/", linkText: "♪┌|∵|┘♪ " },
 ];
