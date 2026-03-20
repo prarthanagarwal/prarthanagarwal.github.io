@@ -52,7 +52,7 @@ export default function Home() {
           </p>
           <p>
             an aspiring polymath — builder. designer, writer, developer, filmmaker.
-            
+            <br />
             still figuring out which hat i like the most.
           </p>
           <p>

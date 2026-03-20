@@ -26,4 +26,5 @@ export const bucketList: BucketItem[] = [
   { id: 17, text: "scubadive (for real this time)", done: false },
   { id: 18, text: "forbes 30 under 30", done: false },
   { id: 19, text: "sing and dance in an irish pub", done: false, link: "https://www.instagram.com/reel/DULubgbkZ7d/", linkText: "♪┌|∵|┘♪ " },
+  { id: 20, text: "visit the camp nou", done: false },
 ];
