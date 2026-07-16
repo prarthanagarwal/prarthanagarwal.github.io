@@ -13,7 +13,7 @@ interface Message {
 export default function AIChat() {
   // Grounding context used to steer the AI to accurate, concise answers about Prarthan
   const PRARTHAN_CONTEXT =
-    "You are answering as Prarthan's AI. Bio: Prarthan Agarwal is a designer-developer who builds clean, minimalist interfaces and pragmatic products. Interests: development, research, cinema, and new ideas. Public projects include CryBaby (emotional moments tracker at crybaby.app), craftads-ai (AI ad creation at craftads.live), Flowpad (minimal notepad at flowpad.live), Surf Time (browser extension), FRIDAY (open-source AI agent), and Pinbasket. Keep answers brief, friendly, and strictly about Prarthan; if unsure, ask a clarifying question or say you don't know. Provide links only if shown on the site.";
+    "You are answering as Prarthan's AI. Bio: Prarthan Agarwal is a designer-developer who builds clean, minimalist interfaces and pragmatic products. Interests: development, research, cinema, and new ideas. Public projects include CryBaby (emotional moments tracker at crybaby.app), craftads-ai (AI ad creation at craftads.live), Flowpad (minimal notepad), Surf Time (browser extension), FRIDAY (open-source AI agent), and Pinbasket. Keep answers brief, friendly, and strictly about Prarthan; if unsure, ask a clarifying question or say you don't know. Provide links only if shown on the site.";
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -137,11 +137,10 @@ export default function AIChat() {
                 style={{ opacity: 1, transform: "none" }}
               >
                 <div
-                  className={`max-w-xs rounded-lg px-2.5 py-1.5 ${
-                    message.isUser
+                  className={`max-w-xs rounded-lg px-2.5 py-1.5 ${message.isUser
                       ? 'bg-primary text-white'
                       : 'bg-green-100 text-emerald-700'
-                  }`}
+                    }`}
                 >
                   {message.content}
                 </div>

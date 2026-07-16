@@ -10,7 +10,7 @@ export const projects: Project[] = [
     id: 1,
     title: "flowpad",
     description: "a minimal notepad for your thoughts to flow",
-    link: "https://flowpad.live/",
+    link: "https://don-flowpad.vercel.app//",
   },
   {
     id: 2,

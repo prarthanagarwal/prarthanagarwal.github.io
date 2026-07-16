@@ -25,7 +25,8 @@ const projects = [
     external: true,
     iconSize: 75
   },
-  {id: 3,
+  {
+    id: 3,
     title: "craftads-ai",
     description: "Advertisement made easy with AI",
     icon: "/logo/craftads.webp",
@@ -33,7 +34,8 @@ const projects = [
     external: true,
     iconSize: 35
   },
-  {id: 4,
+  {
+    id: 4,
     title: "pinbasket",
     description: "Pinterest scraper to collect the best pins.",
     icon: "/logo/pinbasket.webp",
@@ -41,7 +43,8 @@ const projects = [
     external: true,
     iconSize: 45
   },
-  {id: 5,
+  {
+    id: 5,
     title: "Surf Time",
     description: "Browser extension to track and analyze your browsing habits.",
     icon: "/logo/surf-time.webp",
@@ -49,11 +52,12 @@ const projects = [
     external: false,
     iconSize: 60
   },
-  {id: 6,
+  {
+    id: 6,
     title: "Flowpad",
     description: "a minimal notepad for your thoughts to flow",
     icon: "/logo/flowpad.webp",
-    link: "https://flowpad.live/",
+    link: "https://don-flowpad.vercel.app/",
     external: true,
     iconSize: 75
   }
@@ -63,20 +67,20 @@ export default function ProjectsPage() {
   return (
     <main className="font-sans pt-8">
       <Navbar showHomeLink={true} />
-      
+
       <h1 className="text-4xl font-serif tracking-tight text-primary mt-8 mb-6">Projects</h1>
-            
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         {projects.map((project) => (
           <div key={project.id} className="flex flex-col items-start">
             <div className="flex items-start gap-3 w-full">
               <div className={`${project.title === "F.R.I.D.A.Y (MARK II)" ? "w-16 h-16" : "w-14 h-14"} rounded-full bg-hoverColor/60 flex items-center justify-center shrink-0 mt-1 overflow-hidden`}>
                 {project.icon ? (
-                  <Image 
-                    src={project.icon} 
-                    alt={project.title} 
-                    width={project.iconSize || 40} 
-                    height={project.iconSize || 40} 
+                  <Image
+                    src={project.icon}
+                    alt={project.title}
+                    width={project.iconSize || 40}
+                    height={project.iconSize || 40}
                     className="object-contain"
                     loading="lazy"
                     decoding="async"
@@ -86,7 +90,7 @@ export default function ProjectsPage() {
                   <div className="w-10 h-10 bg-primary/20 rounded-full"></div>
                 )}
               </div>
-              
+
               <div className="flex-1">
                 <a
                   href={project.link}
@@ -127,7 +131,7 @@ export default function ProjectsPage() {
           </div>
         ))}
       </div>
-      
+
       <Footer />
     </main>
   );
