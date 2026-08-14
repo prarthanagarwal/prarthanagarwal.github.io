@@ -11,9 +11,8 @@ interface Message {
 }
 
 export default function AIChat() {
-  // Grounding context used to steer the AI to accurate, concise answers about Prarthan
-  const PRARTHAN_CONTEXT =
-    "You are answering as Prarthan's AI. Bio: Prarthan Agarwal is a designer-developer who builds clean, minimalist interfaces and pragmatic products. Interests: development, research, cinema, and new ideas. Public projects include CryBaby (emotional moments tracker at crybaby.app), craftads-ai (AI ad creation at craftads.live), Flowpad (minimal notepad), Surf Time (browser extension), FRIDAY (open-source AI agent), and Pinbasket. Keep answers brief, friendly, and strictly about Prarthan; if unsure, ask a clarifying question or say you don't know. Provide links only if shown on the site.";
+  // The persona and all facts about Prarthan now live in the Cloudflare Worker
+  // (worker/knowledge.md + worker/tweets.json) — the client just sends messages.
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -75,7 +74,6 @@ export default function AIChat() {
         Accept: "text/plain",
       },
       body: JSON.stringify({
-        system: PRARTHAN_CONTEXT,
         requestId: `${now}-${Math.random().toString(36).slice(2, 8)}`,
         messages: [...messages, userMessage],
         stream: true,
@@ -224,7 +222,7 @@ export default function AIChat() {
               rel="noopener noreferrer"
               className="text-body md:hover:text-primary underline-offset-4 transition duration-150 ease-in-out md:hover:underline"
             >
-              Google's Gemini 2.0 Flash
+              Google's Gemini 2.5 Flash
             </a>{" "}
             and{" "}
             <a

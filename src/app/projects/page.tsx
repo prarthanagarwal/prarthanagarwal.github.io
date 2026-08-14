@@ -27,15 +27,6 @@ const projects = [
   },
   {
     id: 3,
-    title: "craftads-ai",
-    description: "Advertisement made easy with AI",
-    icon: "/logo/craftads.webp",
-    link: "https://craftads.live/",
-    external: true,
-    iconSize: 35
-  },
-  {
-    id: 4,
     title: "pinbasket",
     description: "Pinterest scraper to collect the best pins.",
     icon: "/logo/pinbasket.webp",
@@ -44,7 +35,7 @@ const projects = [
     iconSize: 45
   },
   {
-    id: 5,
+    id: 4,
     title: "Surf Time",
     description: "Browser extension to track and analyze your browsing habits.",
     icon: "/logo/surf-time.webp",
@@ -53,7 +44,7 @@ const projects = [
     iconSize: 60
   },
   {
-    id: 6,
+    id: 5,
     title: "Flowpad",
     description: "a minimal notepad for your thoughts to flow",
     icon: "/logo/flowpad.webp",

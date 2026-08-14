@@ -9,7 +9,7 @@ export default function SurfTimePage() {
   return (
     <main className="font-sans pt-8 max-w-4xl mx-auto px-4">
       <Navbar showHomeLink={true} />
-      
+
       <div className="mt-12 mb-16">
         {/* Hero Section */}
         <div className="flex flex-col items-center mb-12">
@@ -62,7 +62,7 @@ export default function SurfTimePage() {
               <li>No trackers, no data harvesting</li>
               <li>You're the only one who sees your waves</li>
             </ul>
-            <Link 
+            <Link
               href="/surf-time-privacy-policy.md"
               className="inline-block mt-6 text-primary hover:underline"
             >
@@ -94,7 +94,7 @@ export default function SurfTimePage() {
           </div>
         </section>
       </div>
-      
+
       <Footer />
     </main>
   );
