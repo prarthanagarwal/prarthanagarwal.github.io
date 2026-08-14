@@ -69,9 +69,12 @@ npx wrangler deploy          # uses worker.js + wrangler.jsonc
 
 ## Model
 
-Defaults to `gemini-2.5-flash` (cheapest available — free tier; `gemini-2.0-flash`
-has been shut down). Override with the `GEMINI_MODEL` variable if you upgrade
-later (e.g. `gemini-2.5-flash-lite` for a cheaper paid tier, or `gemini-3.7-flash`).
+Defaults to `gemini-3.5-flash-lite` — the cheapest current-gen flash (free-tier
+eligible; cheapest paid flash otherwise). `gemini-2.0-flash` is shut down and
+the 2.5 family is no longer available to new API users. If the default model
+404s for your account, the worker automatically tries `gemini-3.6-flash`,
+`gemini-3.5-flash`, then `gemini-3.7-flash`. Set the `GEMINI_MODEL` variable to
+force a single model.
 
 ## Rate limiting
 

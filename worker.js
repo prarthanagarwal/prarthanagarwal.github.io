@@ -8,7 +8,12 @@
 import knowledge from "./worker/knowledge.md";
 import tweets from "./worker/tweets.json";
 
-const DEFAULT_MODEL = "gemini-2.5-flash"; // 2.0-flash is shut down; set env GEMINI_MODEL to override
+// 2.0-flash is shut down and 2.5-flash is no longer available to new API
+// users, so default to the cheapest current-gen flash. If the first model 404s
+// (unavailable for this account), the worker falls through to the next one.
+// Set env GEMINI_MODEL to force a single model.
+const DEFAULT_MODEL = "gemini-3.5-flash-lite";
+const MODEL_FALLBACKS = ["gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.7-flash"];
 
 // Live tweet sync (SocialData.tools — 3 free req/min covers this easily)
 const TWITTER_USER_ID = "1005519845075705857"; // override via env TWITTER_USER_ID
@@ -185,25 +190,51 @@ export default {
       return new Response("No messages provided", { status: 400, headers: cors });
     }
 
-    const model = env.GEMINI_MODEL || DEFAULT_MODEL;
-    const base = `https://generativelanguage.googleapis.com/v1beta/models/${model}`;
     const body = {
       systemInstruction: { parts: [{ text: buildSystemInstruction(freshTweets, profile) }] },
       contents,
-      generationConfig: { temperature: 0.5, maxOutputTokens: 512 },
+      // Minimal config: flash-lite rejects thinkingConfig/responseModalities,
+      // so send only fields every gemini model accepts.
+      generationConfig: {
+        temperature: 0.5,
+        maxOutputTokens: 512,
+      },
     };
 
-    // Stream Gemini's SSE response straight through so the client renders progressively
-    const sseUrl = `${base}:streamGenerateContent?alt=sse&key=${env.GEMINI_API_KEY}`;
-    const upstream = await fetch(sseUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (!upstream.ok) {
-      const text = await upstream.text();
-      return new Response(text, { status: upstream.status, headers: cors });
+    // Stream Gemini's SSE response straight through so the client renders progressively.
+    // Try each model in order: 404 = unavailable for this account; 400 on a non-last
+    // model = this model rejected the config. Either way, try the next one.
+    const models = env.GEMINI_MODEL?.trim()
+      ? [env.GEMINI_MODEL.trim()]
+      : [DEFAULT_MODEL, ...MODEL_FALLBACKS];
+    let model = models[0];
+    let upstream = null;
+    let lastError = null;
+    for (const candidate of models) {
+      const base = `https://generativelanguage.googleapis.com/v1beta/models/${candidate}`;
+      const res = await fetch(`${base}:streamGenerateContent?alt=sse&key=${env.GEMINI_API_KEY}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (res.ok) {
+        model = candidate;
+        upstream = res;
+        break;
+      }
+      lastError = { status: res.status, text: await res.text() };
+      const isLast = candidate === models[models.length - 1];
+      if (res.status === 404) continue;
+      if (res.status === 400 && !isLast) continue;
+      return new Response(lastError.text, { status: lastError.status, headers: cors });
     }
+    if (!upstream) {
+      return new Response(
+        lastError?.text || "No Gemini model in the list is available for this API key",
+        { status: lastError?.status ?? 502, headers: cors },
+      );
+    }
+    const base = `https://generativelanguage.googleapis.com/v1beta/models/${model}`;
 
     const encoder = new TextEncoder();
     const stream = new ReadableStream({

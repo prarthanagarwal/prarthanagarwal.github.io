@@ -4,7 +4,7 @@
   "main": "worker.js",
   "compatibility_date": "2026-08-01",
   "vars": {
-    "GEMINI_MODEL": "gemini-2.5-flash"
+    "GEMINI_MODEL": "gemini-3.5-flash-lite"
   }
   // If you deploy via wrangler CLI instead of the dashboard, uncomment these
   // and set the KV namespace id (wrangler kv namespace create prarthan-tweets):

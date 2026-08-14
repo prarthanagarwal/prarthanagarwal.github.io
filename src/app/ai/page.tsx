@@ -222,7 +222,7 @@ export default function AIChat() {
               rel="noopener noreferrer"
               className="text-body md:hover:text-primary underline-offset-4 transition duration-150 ease-in-out md:hover:underline"
             >
-              Google's Gemini 2.5 Flash
+              Google's Gemini 3.5 Flash Lite
             </a>{" "}
             and{" "}
             <a
