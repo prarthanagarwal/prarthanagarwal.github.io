@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "don-portfolio",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-01",
+  "vars": {
+    "GEMINI_MODEL": "gemini-2.5-flash"
+  }
+  // If you deploy via wrangler CLI instead of the dashboard, uncomment these
+  // and set the KV namespace id (wrangler kv namespace create prarthan-tweets):
+  // "kv_namespaces": [
+  //   { "binding": "TWEETS_KV", "id": "REPLACE_WITH_NAMESPACE_ID" }
+  // ],
+  // "triggers": { "crons": ["*/30 * * * *"] }
+}
